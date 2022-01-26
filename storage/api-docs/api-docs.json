@@ -1,0 +1,48 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Documentacion de la api de ascurrajdev-conf",
+        "version": "1.0"
+    },
+    "paths": {
+        "/login": {
+            "post": {
+                "summary": "Login",
+                "operationId": "a0bad38435a32b5ad173da486ba8f59d",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "title": "Esquema para realizar la peticion",
+                                "properties": {
+                                    "email": {
+                                        "description": "email",
+                                        "format": "string",
+                                        "default": "test@example.com"
+                                    },
+                                    "password": {
+                                        "description": "password",
+                                        "format": "string",
+                                        "default": "12345678"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "204": {
+                        "description": "NOT CONTENT"
+                    },
+                    "419": {
+                        "description": "Error csrf token not found"
+                    }
+                }
+            }
+        }
+    },
+    "security": [
+        []
+    ]
+}
