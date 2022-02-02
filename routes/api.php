@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Broadcast;
 use App\Http\Controllers\Api\Reuniones\ReunionesController;
+use App\Http\Controllers\Api\Reuniones\ReunionesJoinController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +22,9 @@ Route::middleware('auth:sanctum')->group(function(){
         return $request->user();
     });
     Route::get('/reuniones/generate',[ReunionesController::class,"store"]);
+    Route::get('/reuniones/unirse',[ReunionesJoinController::class,"index"]);
+    Route::post('/reuniones/unirse',[ReunionesJoinController::class,"joining"]);
+    Route::post('/reuniones/desconectarse',[ReunionesJoinController::class,"disconnect"]);
     Route::get('/reuniones', [ReunionesController::class,"index"]);
 });
 Broadcast::routes(['middleware' => ['auth:sanctum']]);

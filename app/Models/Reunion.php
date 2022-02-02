@@ -16,9 +16,9 @@ class Reunion extends Model
     
     protected $guarded = [];
     protected static function booted(){
-        static::creating(function($user){
+        static::creating(function($reunion){
             try{
-                $user->id = (string) Str::uuid();
+                $reunion->id = (string) Str::uuid();
             }catch(Exception $e){
                 abort(500,$e->getMessage());
             }
