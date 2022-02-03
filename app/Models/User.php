@@ -51,6 +51,10 @@ class User extends Authenticatable
         return $this->hasMany(Reunion::class);
     }
 
+    public function reunionesJoin(){
+        return $this->hasMany(ReunionJoin::class);
+    }
+
     protected static function booted(){
         static::creating(function($user){
             try{
