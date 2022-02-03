@@ -47,6 +47,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function reuniones(){
+        return $this->hasMany(Reunion::class);
+    }
+
     protected static function booted(){
         static::creating(function($user){
             try{

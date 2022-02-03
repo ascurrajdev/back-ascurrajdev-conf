@@ -21,10 +21,11 @@ Route::middleware('auth:sanctum')->group(function(){
     Route::get('/user', function (Request $request) {
         return $request->user();
     });
+    Route::get('/reuniones', [ReunionesController::class,"index"]);
     Route::get('/reuniones/generate',[ReunionesController::class,"store"]);
+
     Route::get('/reuniones/unirse',[ReunionesJoinController::class,"index"]);
     Route::post('/reuniones/unirse',[ReunionesJoinController::class,"joining"]);
     Route::post('/reuniones/desconectarse',[ReunionesJoinController::class,"disconnect"]);
-    Route::get('/reuniones', [ReunionesController::class,"index"]);
 });
 Broadcast::routes(['middleware' => ['auth:sanctum']]);
