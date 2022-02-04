@@ -40,7 +40,8 @@ return [
                 'encrypted' => true,
                 'host' => env("BROADCASTING_HOST"),
                 'port' => env("BROADCASTING_PORT"),
-                'useTLS' => true
+                'useTLS' => true,
+                "scheme" => env("BROADCASTING_SCHEME")
             ],
         ],
 
