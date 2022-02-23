@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Broadcast;
 use App\Http\Controllers\Api\Reuniones\ReunionesController;
 use App\Http\Controllers\Api\Reuniones\ReunionesJoinController;
+use App\Http\Controllers\Api\Auth\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,4 +29,6 @@ Route::middleware('auth:sanctum')->group(function(){
     Route::post('/reuniones/unirse',[ReunionesJoinController::class,"joining"]);
     Route::post('/reuniones/desconectarse',[ReunionesJoinController::class,"disconnect"]);
 });
+Route::post("login",[LoginController::class,"login"])->name('login');
+
 Broadcast::routes(['middleware' => ['auth:sanctum']]);
